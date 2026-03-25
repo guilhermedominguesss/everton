@@ -558,9 +558,156 @@ export function FilterSection() {
   ];
 
   return (
-    <section className="px-6 py-48 bg-[#F7F9FC] relative overflow-hidden">
-      
-      <div className="absolute top-1/2 right-0 w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="px-6 py-48 relative overflow-hidden"
+      style={{ background: "linear-gradient(145deg, #EEF2FF 0%, #F7F9FC 35%, #F0F4FF 70%, #E8EEFF 100%)" }}>
+
+      {/* SVG grain texture — spiritual depth */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.032 }}>
+        <filter id="filter-grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#filter-grain)"/>
+      </svg>
+
+      {/* Indigo light orb — top-left */}
+      <div className="absolute pointer-events-none"
+        style={{ top: "-8%", left: "-6%", width: "55%", height: "55%",
+          background: "radial-gradient(ellipse at 30% 30%, rgba(99,102,241,0.13) 0%, rgba(139,92,246,0.07) 40%, transparent 70%)",
+          filter: "blur(60px)" }} />
+
+      {/* Blue-teal light — center-right */}
+      <div className="absolute pointer-events-none"
+        style={{ top: "20%", right: "-5%", width: "45%", height: "50%",
+          background: "radial-gradient(ellipse at 70% 40%, rgba(56,189,248,0.10) 0%, rgba(59,130,246,0.06) 45%, transparent 70%)",
+          filter: "blur(70px)" }} />
+
+      {/* Warm amber glow — bottom-right */}
+      <div className="absolute pointer-events-none"
+        style={{ bottom: "0%", right: "10%", width: "40%", height: "40%",
+          background: "radial-gradient(ellipse at 60% 80%, rgba(139,111,48,0.08) 0%, transparent 65%)",
+          filter: "blur(55px)" }} />
+
+      {/* Shadow depth — bottom edge */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{ background: "linear-gradient(0deg, rgba(99,102,241,0.06) 0%, transparent 100%)" }} />
+
+      {/* ── VESICA PISCIS — top-right ─────────────────────────────── */}
+      <svg className="absolute pointer-events-none"
+        style={{ top: "-60px", right: "-60px", width: "420px", height: "420px", opacity: 0.38 }}
+        viewBox="0 0 420 420" fill="none">
+        <defs>
+          <linearGradient id="vp-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#8B6F30" stopOpacity="0.9"/>
+            <stop offset="100%" stopColor="#C9A84C" stopOpacity="0.3"/>
+          </linearGradient>
+        </defs>
+        {/* Left circle of vesica */}
+        <circle cx="185" cy="210" r="110" stroke="url(#vp-gold)" strokeWidth="0.8"/>
+        {/* Right circle of vesica */}
+        <circle cx="235" cy="210" r="110" stroke="url(#vp-gold)" strokeWidth="0.8"/>
+        {/* Outer containing circle */}
+        <circle cx="210" cy="210" r="148" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.45"/>
+        {/* Inner small circle at center */}
+        <circle cx="210" cy="210" r="55" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.5"/>
+        {/* Vesica lens vertical axis */}
+        <line x1="210" y1="62" x2="210" y2="358" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.30"/>
+        {/* Horizontal axis */}
+        <line x1="62" y1="210" x2="358" y2="210" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.30"/>
+        {/* Triangle inscribed in vesica */}
+        <polygon points="210,100 318,265 102,265" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.28" fill="none"/>
+        {/* Tiny center point */}
+        <circle cx="210" cy="210" r="3" fill="#8B6F30" fillOpacity="0.5"/>
+        {/* 12 radial ticks on outer ring */}
+        {Array.from({length: 12}, (_, i) => {
+          const angle = (i * 30 - 90) * Math.PI / 180;
+          const r1 = 148, r2 = 156;
+          return <line key={i}
+            x1={210 + r1 * Math.cos(angle)} y1={210 + r1 * Math.sin(angle)}
+            x2={210 + r2 * Math.cos(angle)} y2={210 + r2 * Math.sin(angle)}
+            stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.55"/>;
+        })}
+      </svg>
+
+      {/* ── COSMIC ORBITS — bottom-left ───────────────────────────── */}
+      <svg className="absolute pointer-events-none"
+        style={{ bottom: "-80px", left: "-80px", width: "480px", height: "480px", opacity: 0.34 }}
+        viewBox="0 0 480 480" fill="none">
+        <defs>
+          <linearGradient id="orbit-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#6366F1" stopOpacity="0.8"/>
+            <stop offset="100%" stopColor="#8B6F30" stopOpacity="0.3"/>
+          </linearGradient>
+        </defs>
+        {/* Tilted orbit ellipses — three at different rotations */}
+        <ellipse cx="240" cy="240" rx="180" ry="80" stroke="url(#orbit-blue)" strokeWidth="0.7"
+          transform="rotate(-30 240 240)"/>
+        <ellipse cx="240" cy="240" rx="180" ry="80" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.45"
+          transform="rotate(30 240 240)"/>
+        <ellipse cx="240" cy="240" rx="180" ry="80" stroke="#6366F1" strokeWidth="0.5" strokeOpacity="0.30"
+          transform="rotate(90 240 240)"/>
+        {/* Center circle */}
+        <circle cx="240" cy="240" r="28" stroke="#8B6F30" strokeWidth="0.8" strokeOpacity="0.55"/>
+        <circle cx="240" cy="240" r="10" stroke="#6366F1" strokeWidth="0.6" strokeOpacity="0.50"/>
+        <circle cx="240" cy="240" r="3" fill="#8B6F30" fillOpacity="0.6"/>
+        {/* Outer boundary ring */}
+        <circle cx="240" cy="240" r="190" stroke="#6366F1" strokeWidth="0.5" strokeOpacity="0.22"/>
+        {/* 8 cardinal ticks */}
+        {Array.from({length: 8}, (_, i) => {
+          const angle = (i * 45 - 90) * Math.PI / 180;
+          return <line key={i}
+            x1={240 + 190 * Math.cos(angle)} y1={240 + 190 * Math.sin(angle)}
+            x2={240 + 200 * Math.cos(angle)} y2={240 + 200 * Math.sin(angle)}
+            stroke="#6366F1" strokeWidth="0.8" strokeOpacity="0.45"/>;
+        })}
+      </svg>
+
+      {/* ── SMALL SPIRAL CIRCLES — mid-left ──────────────────────── */}
+      <svg className="absolute pointer-events-none hidden lg:block"
+        style={{ top: "38%", left: "2%", width: "120px", height: "120px", opacity: 0.33 }}
+        viewBox="0 0 120 120" fill="none">
+        <circle cx="60" cy="60" r="55" stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.6"/>
+        <circle cx="60" cy="60" r="42" stroke="#6366F1" strokeWidth="0.6" strokeOpacity="0.5"/>
+        <circle cx="60" cy="60" r="28" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.5"/>
+        <circle cx="60" cy="60" r="14" stroke="#6366F1" strokeWidth="0.6" strokeOpacity="0.55"/>
+        <circle cx="60" cy="60" r="4"  fill="#8B6F30" fillOpacity="0.55"/>
+        {/* Cross */}
+        <line x1="60" y1="5"  x2="60" y2="115" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.35"/>
+        <line x1="5"  y1="60" x2="115" y2="60" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.35"/>
+      </svg>
+
+      {/* ── SMALL VESICA — mid-right ──────────────────────────────── */}
+      <svg className="absolute pointer-events-none hidden xl:block"
+        style={{ top: "55%", right: "3%", width: "100px", height: "100px", opacity: 0.28 }}
+        viewBox="0 0 100 100" fill="none">
+        <circle cx="42" cy="50" r="32" stroke="#8B6F30" strokeWidth="0.8" strokeOpacity="0.7"/>
+        <circle cx="58" cy="50" r="32" stroke="#6366F1" strokeWidth="0.8" strokeOpacity="0.6"/>
+        <circle cx="50" cy="50" r="46" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.35"/>
+        <circle cx="50" cy="50" r="3"  fill="#6366F1" fillOpacity="0.6"/>
+      </svg>
+
+      {/* ── TOP ORNAMENTAL LINE ───────────────────────────────────── */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-3" style={{ opacity: 0.48 }}>
+        <div style={{ width: "120px", height: "1px", background: "linear-gradient(90deg, transparent, #8B6F30 60%, rgba(139,111,48,0.3))" }}/>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="7" cy="7" r="5" stroke="#8B6F30" strokeWidth="0.8"/>
+          <circle cx="7" cy="7" r="2" stroke="#6366F1" strokeWidth="0.7"/>
+          <circle cx="7" cy="7" r="1" fill="#8B6F30"/>
+        </svg>
+        <div style={{ width: "120px", height: "1px", background: "linear-gradient(90deg, rgba(139,111,48,0.3), #8B6F30 40%, transparent)" }}/>
+      </div>
+
+      {/* ── BOTTOM ORNAMENTAL LINE ────────────────────────────────── */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-3" style={{ opacity: 0.42 }}>
+        <div style={{ width: "80px", height: "1px", background: "linear-gradient(90deg, transparent, #6366F1 60%, rgba(99,102,241,0.3))" }}/>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <circle cx="6" cy="6" r="5" stroke="#6366F1" strokeWidth="0.8"/>
+          <circle cx="6" cy="6" r="2" stroke="#8B6F30" strokeWidth="0.7"/>
+          <circle cx="6" cy="6" r="1" fill="#6366F1"/>
+        </svg>
+        <div style={{ width: "80px", height: "1px", background: "linear-gradient(90deg, rgba(99,102,241,0.3), #6366F1 40%, transparent)" }}/>
+      </div>
+
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-24 max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-serif font-black text-[#0F1B3D] mb-4 leading-tight tracking-tighter">
