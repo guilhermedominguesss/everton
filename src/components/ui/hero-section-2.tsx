@@ -88,7 +88,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               )}
 
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.08] text-[#0F1B3D] tracking-tight"
+                className="text-[1.6rem] md:text-[1.9rem] lg:text-[2.2rem] xl:text-[2.6rem] font-light leading-snug text-[#0F1B3D] tracking-tight"
                 style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
                 variants={itemVariants}
               >
