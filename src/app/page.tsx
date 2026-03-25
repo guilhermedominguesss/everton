@@ -1,0 +1,961 @@
+﻿"use client";
+
+import { motion } from "framer-motion";
+import { 
+  Check, 
+  X, 
+  ArrowRight, 
+  Sparkles,
+  Instagram,
+  MessageCircle,
+  Shield,
+  Focus,
+  MapPin,
+} from "lucide-react";
+import { HeroSection as HeroSection2 } from "@/components/ui/hero-section-2";
+import { Navbar } from "@/components/ui/navbar";
+import { PinContainer } from "@/components/ui/3d-pin";
+import { BackgroundPaths } from "@/components/ui/background-paths";
+import { Features } from "@/components/blocks/features-1";
+import { ParticleButton } from "@/components/ui/particle-button";
+import { SparklesCore } from "@/components/ui/sparkles";
+import DisplayCards from "@/components/ui/display-cards";
+import HighlightCard from "@/components/ui/highlight-card";
+import { CircularTestimonials } from "@/components/ui/circular-testimonials";
+import { GradualSpacing } from "@/components/ui/gradual-spacing";
+import { FooterBackgroundGradient, TextHoverEffect } from "@/components/ui/hover-footer";
+import ParticlesBg from "@/components/ui/particles-bg";
+
+const WHATSAPP_NUMBER = "5547991489716";
+const WHATSAPP_MSG = "Olá Everton, gostaria de saber mais sobre as sessões e mentorias.";
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
+const INSTAGRAM_LINK = "https://instagram.com/everton.ferrari";
+const ROYAL_BLUE = "#4169E1";
+const LOGO_URL = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c20fa042-f03a-41ff-9d4a-1212f1f96fdc/LOGO-EVERTON-FERRARI_COM-NOME.pdf-1768830015534.png?width=8000&height=8000&resize=contain";
+
+const GrainOverlay = () => (
+  <div className="fixed inset-0 z-[100] pointer-events-none opacity-[0.03] mix-blend-overlay hidden md:block">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+  </div>
+);
+
+export function HeroSection() {
+  return (
+    <div className="relative">
+        <HeroSection2
+          logo={{
+            url: LOGO_URL,
+            alt: "Everton Ferrari Logo",
+          }}
+          slogan="TRAINER EM PNL & MENTOR DE COMPORTAMENTO HUMANO"
+          title={
+            <>
+              Eu te devolvo algo que o mundo tentou tirar de você:<br />
+              <span className="text-[#8B6F30]">Clareza.</span>
+            </>
+          }
+          subtitle={
+            <div className="space-y-4 max-w-lg">
+              <p className="text-base md:text-lg text-[#0F1B3D] leading-relaxed">
+                <strong>Você não precisa de mais informação.</strong><br />
+                <strong>Você precisa de decisão.</strong><br />
+                <strong>E decisão exige coragem.</strong>
+              </p>
+              <p className="text-base md:text-lg text-[#0F1B3D]/80 leading-relaxed">
+                Estou aqui para conduzir você de volta ao lugar onde suas decisões nascem com verdade, clareza e poder.
+              </p>
+            </div>
+          }
+          callToAction={{
+            text: "Começar minha transformação",
+            href: WHATSAPP_LINK,
+          }}
+            backgroundImage="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/5e91c788-830e-448a-a4d1-f8d9314960f8/sdsd-1767635629212.png?width=1200&height=1200&resize=contain"
+          />
+    </div>
+  );
+}
+
+export function PainSection() {
+  return (
+    <section className="relative bg-white overflow-hidden">
+      {/* ── PARTICLES: Top-right cluster (connects Point 1 → Point 2) ── */}
+      <div className="absolute top-0 right-0 w-[55%] h-[35%] pointer-events-none z-[1] opacity-40 hidden md:block">
+        <ParticlesBg
+          particleCount={60}
+          color="#1E3A8A"
+          lineColor="#1E3A8A"
+          opacity={0.5}
+          speed={0.8}
+        />
+      </div>
+
+      {/* ── PARTICLES: Center diagonal cluster (Point 3 core — the loop) ── */}
+      <div className="absolute top-[28%] left-[15%] w-[70%] h-[44%] pointer-events-none z-[1] opacity-50 hidden md:block">
+        <ParticlesBg
+          particleCount={100}
+          color="#1E3A8A"
+          lineColor="#0F1B3D"
+          opacity={0.65}
+          speed={1.8}
+        />
+      </div>
+
+      {/* ── PARTICLES: Bottom-left cluster (connects Point 4 → Point 5) ── */}
+      <div className="absolute bottom-0 left-0 w-[55%] h-[35%] pointer-events-none z-[1] opacity-35 hidden md:block">
+        <ParticlesBg
+          particleCount={50}
+          color="#1E3A8A"
+          lineColor="#1E3A8A"
+          opacity={0.4}
+          speed={0.6}
+        />
+      </div>
+
+      {/* ── Z-PATH GUIDE LINE (diagonal from top-right to bottom-left, hidden on mobile) ── */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block z-[2]" preserveAspectRatio="none">
+        <motion.line
+          x1="10%" y1="8%" x2="88%" y2="8%"
+          stroke="rgba(30,58,138,0.04)" strokeWidth="1"
+          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
+          transition={{ duration: 2, ease: "easeInOut" }} viewport={{ once: true }}
+        />
+        <motion.line
+          x1="88%" y1="8%" x2="12%" y2="92%"
+          stroke="rgba(30,58,138,0.04)" strokeWidth="1"
+          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 1.5, ease: "easeInOut" }} viewport={{ once: true }}
+        />
+        <motion.line
+          x1="12%" y1="92%" x2="90%" y2="92%"
+          stroke="rgba(30,58,138,0.04)" strokeWidth="1"
+          initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 3, ease: "easeInOut" }} viewport={{ once: true }}
+        />
+      </svg>
+
+      {/* ═══════ POINT 1 — TOP LEFT (Perception) ═══════ */}
+      <div className="relative min-h-[55vh] md:min-h-[60vh] flex items-start pt-24 md:pt-32 pb-12">
+        {/* Calm, nearly static glow */}
+        <div className="absolute top-[8%] left-[3%] w-[400px] h-[400px] rounded-full bg-[#1E3A8A]/[0.025] blur-[120px] pointer-events-none" />
+
+        <div className="container max-w-[1220px] mx-auto px-6 md:px-10 relative z-10">
+          <div className="max-w-lg md:max-w-xl">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="text-[#1E3A8A]/30 text-[10px] md:text-xs tracking-[0.35em] uppercase font-sans block mb-6"
+            >
+              01 — Percepção
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true }}
+              className="text-[#0F1B3D] text-4xl md:text-6xl lg:text-7xl font-serif font-light leading-[1.08] tracking-tight mb-8"
+            >
+              Você funciona bem<br />
+              <span className="italic text-[#1E3A8A]/50">para o mundo.</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true }}
+              className="text-[#0F1B3D]/35 text-lg md:text-xl font-sans font-light leading-relaxed max-w-md"
+            >
+              As metas estão lá. Os resultados aparecem. De fora, tudo funciona.
+            </motion.p>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══════ POINT 2 — TOP RIGHT (Discomfort) ═══════ */}
+      <div className="relative min-h-[55vh] md:min-h-[60vh] flex items-start pt-12 md:pt-20 pb-12">
+        {/* Slight tension glow — warmer, shifting */}
+        <motion.div
+          className="absolute w-[450px] h-[450px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(30,58,138,0.05) 0%, transparent 70%)",
+            top: "5%",
+            right: "0%",
+            filter: "blur(90px)",
+          }}
+          animate={{ x: [0, -25, 10, 0], y: [0, 15, -10, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+
+        <div className="container max-w-[1220px] mx-auto px-6 md:px-10 relative z-10">
+          <div className="flex justify-end">
+            <div className="max-w-lg md:max-w-xl text-right">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.2 }}
+                viewport={{ once: true }}
+                className="text-[#8B6F30]/40 text-[10px] md:text-xs tracking-[0.35em] uppercase font-sans block mb-6"
+              >
+                02 — Desconforto
+              </motion.span>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true }}
+                className="text-[#0F1B3D] text-3xl md:text-5xl lg:text-6xl font-serif font-medium leading-[1.12] tracking-tight mb-6"
+              >
+                Mas por dentro,<br />
+                <span className="text-[#1E3A8A]">algo não encaixa.</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true }}
+                className="text-[#0F1B3D]/45 text-lg md:text-xl font-serif font-light italic leading-relaxed"
+              >
+                O ruído que não para. O vazio que o sucesso não preenche.
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══════ POINT 3 — CENTER DIAGONAL (Loop / Automatic Mode) ═══════ */}
+      <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center py-16 md:py-24">
+        {/* Animated loop gradients — visual tension at the core */}
+        <motion.div
+          className="absolute w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(30,58,138,0.06) 0%, transparent 65%)",
+            top: "10%",
+            left: "20%",
+            filter: "blur(80px)",
+          }}
+          animate={{
+            x: [0, 50, -30, 0],
+            y: [0, -40, 30, 0],
+            scale: [1, 1.1, 0.92, 1],
+          }}
+          transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute w-[400px] h-[400px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(139,111,48,0.04) 0%, transparent 65%)",
+            bottom: "15%",
+            right: "25%",
+            filter: "blur(100px)",
+          }}
+          animate={{
+            x: [0, -35, 20, 0],
+            y: [0, 25, -15, 0],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Rotating loop line — suggests repetition */}
+        <motion.div
+          className="absolute hidden md:block pointer-events-none"
+          style={{
+            width: "280px",
+            height: "280px",
+            border: "1px solid rgba(30,58,138,0.06)",
+            borderRadius: "50%",
+            top: "50%",
+            left: "50%",
+            marginTop: "-140px",
+            marginLeft: "-140px",
+          }}
+          animate={{ rotate: [0, 360] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute hidden md:block pointer-events-none"
+          style={{
+            width: "180px",
+            height: "180px",
+            border: "1px solid rgba(139,111,48,0.05)",
+            borderRadius: "50%",
+            top: "50%",
+            left: "50%",
+            marginTop: "-90px",
+            marginLeft: "-90px",
+          }}
+          animate={{ rotate: [360, 0] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+
+        <div className="container max-w-[1220px] mx-auto px-6 md:px-10 relative z-10">
+          <div className="flex justify-center">
+            <div className="max-w-3xl text-center">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.2 }}
+                viewport={{ once: true }}
+                className="text-[#1E3A8A]/30 text-[10px] md:text-xs tracking-[0.35em] uppercase font-sans block mb-8"
+              >
+                03 — Modo Automático
+              </motion.span>
+
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true }}
+                className="text-[#0F1B3D] text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-medium leading-[1.15] tracking-tight mb-10"
+              >
+                O mesmo ciclo.<br />
+                As mesmas respostas.<br />
+                <span className="text-[#1E3A8A]/70 italic font-light">O mesmo lugar.</span>
+              </motion.h2>
+
+              <div className="space-y-5 mb-10">
+                {[
+                  { text: "Você tenta mudar — mas o padrão se repete.", delay: 0.3 },
+                  { text: "O medo disfarçado de prudência paralisa.", delay: 0.6 },
+                  { text: "O peso de sustentar quem você não é.", delay: 0.9 },
+                  { text: "O piloto automático que governa suas escolhas.", delay: 1.2 },
+                ].map((item, i) => (
+                  <motion.p
+                    key={i}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: item.delay, ease: [0.25, 0.1, 0.25, 1] }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    className="text-[#0F1B3D]/45 text-lg md:text-2xl font-serif font-light italic leading-relaxed"
+                  >
+                    {item.text}
+                  </motion.p>
+                ))}
+              </div>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5, delay: 1.8 }}
+                viewport={{ once: true }}
+                className="text-[#0F1B3D]/25 text-sm md:text-base font-sans font-light tracking-wide"
+              >
+                Você reconhece esse ciclo?
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══════ POINT 4 — BOTTOM LEFT (Break / Awareness Trigger) ═══════ */}
+      <div className="relative min-h-[55vh] md:min-h-[60vh] flex items-end pb-12 md:pb-20 pt-12">
+        {/* Stronger presence — background reacts */}
+        <motion.div
+          className="absolute w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(30,58,138,0.08) 0%, transparent 60%)",
+            bottom: "0%",
+            left: "-5%",
+            filter: "blur(80px)",
+          }}
+          animate={{ scale: [1, 1.12, 1], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="container max-w-[1220px] mx-auto px-6 md:px-10 relative z-10">
+          <div className="max-w-lg md:max-w-xl">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+              viewport={{ once: true }}
+              className="text-[#8B6F30]/50 text-[10px] md:text-xs tracking-[0.35em] uppercase font-sans block mb-6"
+            >
+              04 — Ruptura
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true }}
+              className="text-[#0F1B3D] text-3xl md:text-5xl lg:text-6xl font-serif font-semibold leading-[1.1] tracking-tight mb-6"
+            >
+              Chega.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true }}
+              className="text-[#0F1B3D]/55 text-xl md:text-2xl font-serif font-light leading-relaxed mb-4"
+            >
+              O desalinhamento cobra um preço alto demais.<br />
+              <span className="font-medium text-[#0F1B3D]/70">Você sabe disso.</span>
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="text-[#0F1B3D]/30 text-base md:text-lg font-sans font-light"
+            >
+              Algo dentro de você já decidiu. Falta só ouvir.
+            </motion.p>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══════ POINT 5 — BOTTOM RIGHT (Clarity / Direction) ═══════ */}
+      <div className="relative min-h-[55vh] md:min-h-[60vh] flex items-center py-16 md:py-24">
+        {/* Soft relief glow — visual calm */}
+        <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#1E3A8A]/[0.02] blur-[120px] pointer-events-none" />
+        <motion.div
+          className="absolute w-[250px] h-[250px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(139,111,48,0.03) 0%, transparent 70%)",
+            bottom: "25%",
+            right: "12%",
+            filter: "blur(80px)",
+          }}
+          animate={{ scale: [1, 1.04, 1], opacity: [0.5, 0.75, 0.5] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="container max-w-[1220px] mx-auto px-6 md:px-10 relative z-10">
+          <div className="flex justify-end">
+            <div className="max-w-lg md:max-w-xl text-right md:pr-8">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: true }}
+                className="text-[#8B6F30]/35 text-[10px] md:text-xs tracking-[0.35em] uppercase font-sans block mb-6"
+              >
+                05 — Clareza
+              </motion.span>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true }}
+                className="text-[#0F1B3D] text-3xl md:text-5xl lg:text-6xl font-serif font-light leading-[1.12] tracking-tight mb-8"
+              >
+                E se o problema não fosse{" "}
+                <span className="italic text-[#0F1B3D]/50">falta de força</span>
+                <br />
+                — mas falta de{" "}
+                <span className="text-[#8B6F30] font-medium">clareza?</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true }}
+                className="text-[#0F1B3D]/35 text-lg md:text-xl font-sans font-light leading-relaxed mb-12"
+              >
+                Você não precisa de mais motivação.<br />
+                Precisa reconectar com quem você realmente é.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true }}
+                className="flex justify-end"
+              >
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                  <ParticleButton
+                    className="bg-[#22c55e] hover:bg-[#16a34a] text-white px-10 py-6 text-lg rounded-full shadow-lg shadow-green-600/15"
+                  >
+                    Quero recuperar minha clareza
+                  </ParticleButton>
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom gradient transition */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#111827] to-transparent pointer-events-none z-20" />
+    </section>
+  );
+}
+
+export function MethodSection() {
+  return (
+    <section id="metodo" className="relative bg-[#FAF8F4] overflow-hidden">
+      
+      <BackgroundPaths title="Menos esforço, mais verdade.">
+        <div className="relative z-20 w-full">
+          <Features />
+
+          <div className="mt-10 md:mt-20 h-[18rem] md:h-[30rem] w-full flex items-center justify-center">
+            <PinContainer 
+              title="Inicie sua jornada" 
+              href={WHATSAPP_LINK}
+            >
+              <div className="flex flex-col p-4 w-[14rem] sm:w-[18rem] md:w-[22rem] justify-center text-center bg-black/40 rounded-2xl backdrop-blur-sm border border-white/5">
+                <p className="text-base md:text-2xl font-serif font-light leading-relaxed text-white relative z-10">
+                  "A mudança real não é se transformar em outra pessoa. <br className="hidden md:block" />
+                  <span className="text-[#C9A227] italic font-medium">É finalmente ter coragem de parar de se abandonar."</span>
+                </p>
+              </div>
+            </PinContainer>
+          </div>
+        </div>
+      </BackgroundPaths>
+
+    </section>
+  );
+}
+
+export function FilterSection() {
+  const filterCards = [
+    {
+      icon: <Sparkles className="size-4 text-blue-300" />,
+      title: "Clareza",
+      description: "Para quem busca clareza, não máscaras.",
+      date: "Essencial",
+      iconClassName: "text-blue-500",
+      titleClassName: "text-blue-500",
+      className: "[grid-area:stack] -translate-x-6 sm:-translate-x-12 hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+      icon: <Shield className="size-4 text-blue-300" />,
+      title: "Liberdade",
+      description: "Para quem quer liberdade, não fórmulas.",
+      date: "Profundo",
+      iconClassName: "text-blue-500",
+      titleClassName: "text-blue-500",
+      className: "[grid-area:stack] translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+      icon: <Focus className="size-4 text-blue-300" />,
+      title: "Essência",
+      description: "Para quem valoriza o tempo e a própria essência.",
+      date: "Real",
+      iconClassName: "text-blue-500",
+      titleClassName: "text-blue-500",
+      className: "[grid-area:stack] translate-x-6 sm:translate-x-12 translate-y-20 hover:translate-y-10",
+    },
+  ];
+
+  return (
+    <section className="px-6 py-48 bg-[#F7F9FC] relative overflow-hidden">
+      
+      <div className="absolute top-1/2 right-0 w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-24 max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-serif font-black text-[#0F1B3D] mb-4 leading-tight tracking-tighter">
+            Este é um convite para poucos.
+          </h2>
+          <p className="italic font-light text-2xl md:text-4xl text-[#0F1B3D] mb-8">
+            Apenas para quem busca profundidade e autoconhecimento.
+          </p>
+          <p className="text-[#6B7280] text-lg font-sans font-light leading-relaxed">
+            Não busco volume, busco profundidade. Minhas sessões são destinadas a quem está genuinamente pronto para encarar a própria verdade e assumir o comando.
+          </p>
+        </div>
+        <div className="grid lg:grid-cols-2 gap-24 lg:gap-32 items-center">
+          <div className="relative pb-20 flex justify-center">
+            <div className="relative w-full max-w-md flex justify-center">
+              <DisplayCards cards={filterCards} />
+              <div className="absolute -bottom-10 left-0 right-0 h-40 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12)_0%,transparent_70%)] blur-2xl pointer-events-none" />
+            </div>
+          </div>
+          <div className="grid gap-12">
+            <div className="transform hover:-translate-y-2 transition-transform duration-500">
+              <HighlightCard 
+                title="Sim, se você..."
+                description={[
+                  "Deseja parar de se adaptar a ambientes tóxicos",
+                  "e começar a respeitar sua própria essência e liberdade."
+                ]}
+                icon={<Check className="w-8 h-8 text-emerald-500" />}
+              />
+            </div>
+            <div className="transform hover:-translate-y-2 transition-transform duration-500">
+              <HighlightCard 
+                title="Não, se você..."
+                description={[
+                  "Espera uma pílula mágica ou que alguém te \"conserte\"",
+                  "sem que você assuma a autorresponsabilidade pelo seu processo de mudança."
+                ]}
+                icon={<X className="w-8 h-8 text-rose-500" />}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-20 flex justify-center">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full flex justify-center">
+            <ParticleButton 
+              className="bg-[#4169E1] hover:bg-[#3158c9] text-white px-10 py-6 text-lg md:px-12 md:py-8 md:text-xl rounded-full shadow-lg shadow-blue-500/20 w-full md:w-auto"
+            >
+              Eu escolho a profundidade
+            </ParticleButton>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function TestimonialsSection() {
+  const testimonials = [
+    {
+      quote:
+        "Realizei uma sessão de valores com o Everton Ferrari, o Anjo! Foi muito incrível e transformadora. Iniciei completamente perdida e confusa, sai uma nova mulher. Transbordando confiança para realizar tudo que eu quiser, com poder e liberdade porque eu sou livre. Everton querido Anjo, Ser de Luz, gratidão pela paciência, dedicação e leveza para conduzir a sessão de uma forma tão esclarecedora e libertadora. Deus ilumine a sua caminhada cada vez mais. Gratidão!",
+      name: "Marilene Crencas",
+      designation: "Sessão",
+      src: "/depoimento-1.jpeg",
+    },
+    {
+      quote:
+        "Passando aqui pra deixar meu depoimento sobre a sessão de valores realizada hoje com Everton Ferrari. A sessão foi maravilhosa, identificamos valores como autovalor pessoal, amor próprio, permissão, poder, competência. O Everton foi leve, rimos, me emocionei, ele foi atento, didático, preciso e sensível. Gratidão pela sessão. Amei.",
+      name: "Andréia Teixeira",
+      designation: "Sessão",
+      src: "/depoimento-3.jpg",
+    },
+    {
+      quote:
+        "Gostaria de expressar minha profunda gratidão pela sessão de valores que acabei de concluir com o Everton. Ele é realmente uma pessoa incrível, leve, divertido e absolutamente cativante. Durante nossa conversa, consegui desbloquear várias questões internas e reconhecer valores em mim mesma que, até então, não sabia serem tão maravilhosos e fundamentais em minha vida.",
+      name: "Rita Crencas",
+      designation: "Sessão",
+      src: "/depoimento-2.jpg",
+    },
+  ];
+
+  return (
+    <section id="depoimentos" className="bg-[#f7f7fa] py-20 md:py-32 flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="text-center mb-16 max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl md:text-5xl font-serif font-light text-[#111827] mb-6 leading-tight">
+          Resultados Reais de quem assumiu o comando
+        </h2>
+        <p className="text-[#6B7280] text-lg font-sans font-light">
+          Relatos de quem escolheu encarar a própria verdade através da Terapia e Mentoria com PNL.
+        </p>
+      </div>
+      <div
+        className="items-center justify-center relative flex w-full"
+        style={{ maxWidth: "1456px" }}
+      >
+        <CircularTestimonials
+          testimonials={testimonials}
+          autoplay={true}
+          colors={{
+            name: "#0a0a0a",
+            designation: "#454545",
+            testimony: "#171717",
+            arrowBackground: "#111827",
+            arrowForeground: "#f1f1f7",
+            arrowHoverBackground: "#1E3A8A",
+          }}
+          fontSizes={{
+            name: "28px",
+            designation: "18px",
+            quote: "18px",
+          }}
+        />
+      </div>
+    </section>
+  );
+}
+
+export function AuthoritySection() {
+  return (
+    <section id="sobre" className="px-6 py-32 bg-white overflow-hidden relative">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-20 items-center">
+            <div className="w-full md:w-1/2 relative">
+               <div className="aspect-[4/5] rounded-[60px] bg-neutral-900 relative overflow-hidden group border border-white/5">
+                  <img 
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c20fa042-f03a-41ff-9d4a-1212f1f96fdc/Fotos-1767707749223.png?width=8000&height=8000&resize=contain" 
+                    alt="Everton Ferrari"
+                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/40 to-transparent opacity-60" />
+               </div>
+               <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#C9A227] rounded-full flex items-center justify-center text-white p-6 text-center shadow-2xl">
+                <p className="font-serif italic text-lg">+500 horas de impacto real</p>
+             </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <span className="text-[#1E3A8A] text-xs tracking-[0.2em] uppercase mb-6 block">Seu Mentor: Everton Ferrari – Trainer em PNL</span>
+            <div className="flex flex-col items-start mb-8">
+              <GradualSpacing 
+                text="Everton"
+                className="text-5xl md:text-7xl font-serif font-light text-[#111827] justify-start"
+              />
+              <GradualSpacing 
+                text="Ferrari"
+                className="text-5xl md:text-7xl font-serif font-light text-[#111827] justify-start"
+              />
+            </div>
+            <p className="text-[#1E3A8A] font-serif italic text-xl mb-8">Especialista em Comportamento Humano e Quebra de Crenças.</p>
+            <div className="space-y-6 text-[#6B7280] text-lg font-sans font-light leading-relaxed mb-12">
+              <p>Especialista em PNL, Crenças e Valores, com mais de 10 anos de jornada dedicados ao deciframento do comportamento humano.</p>
+              <p>Meu método não é padronizado. Ele é um espelho. Eu conduzo você até o ponto onde as respostas que você busca finalmente podem ser ouvidas.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <p className="text-4xl font-serif text-[#1E3A8A] mb-1">+10 anos</p>
+                <p className="text-xs uppercase tracking-widest text-[#9CA3AF]">Experiência</p>
+              </div>
+              <div>
+                <p className="text-4xl font-serif text-[#1E3A8A] mb-1">Puro PNL</p>
+                <p className="text-xs uppercase tracking-widest text-[#9CA3AF]">Metodologia</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function FinalCTA() {
+  return (
+    <section className="px-6 py-40 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 hidden md:block">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+          speed={1}
+        />
+      </div>
+      
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="flex flex-col items-center mb-10">
+          <h2 className="text-4xl md:text-6xl font-serif font-light text-white leading-tight">
+            Assuma agora o comando da sua
+          </h2>
+          <p className="italic text-4xl md:text-6xl font-serif font-light text-[#4169E1] leading-tight">
+            própria existência.
+          </p>
+        </div>
+        <p className="text-[#9CA3AF] text-xl font-sans font-light mb-16 max-w-2xl mx-auto leading-relaxed">
+          O primeiro passo é um breve contato via WhatsApp para entendermos se este é o seu momento e se eu sou o mentor certo para você.
+        </p>
+        <div className="flex flex-col items-center gap-8">
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group w-full flex justify-center"
+          >
+            <ParticleButton 
+              className="bg-[#4169E1] hover:bg-[#3158c9] text-white px-10 py-6 text-lg md:px-16 md:py-8 md:text-2xl rounded-full shadow-2xl shadow-blue-600/20 w-full md:w-auto"
+            >
+              Iniciar meu Realinhamento
+            </ParticleButton>
+          </a>
+          <p className="text-[#9CA3AF] text-sm font-sans tracking-[0.2em] uppercase opacity-50">
+            Apenas para quem busca verdade
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Footer() {
+  const footerLinks = [
+    {
+      title: "Navegação",
+      links: [
+        { label: "O Método", href: "#metodo" },
+        { label: "Sobre Mim", href: "#sobre" },
+        { label: "Contato", href: WHATSAPP_LINK },
+      ],
+    },
+    {
+      title: "Especialidades",
+      links: [
+        { label: "PNL", href: "#metodo" },
+        { label: "Crenças", href: "#metodo" },
+        { label: "Valores", href: "#metodo" },
+        { label: "Mentoria", href: WHATSAPP_LINK, pulse: true },
+      ],
+    },
+  ];
+
+  const contactInfo = [
+    {
+      icon: <Instagram size={18} className="text-[#4169E1]" />,
+      text: "@everton.ferrari",
+      href: INSTAGRAM_LINK,
+    },
+    {
+      icon: <MessageCircle size={18} className="text-[#4169E1]" />,
+      text: "+55 47 99148-9716",
+      href: WHATSAPP_LINK,
+    },
+    {
+      icon: <MapPin size={18} className="text-[#4169E1]" />,
+      text: "Atendimento Online & Presencial",
+    },
+  ];
+
+  const socialLinks = [
+    { icon: <Instagram size={20} />, label: "Instagram", href: INSTAGRAM_LINK },
+    { icon: <MessageCircle size={20} />, label: "WhatsApp", href: WHATSAPP_LINK },
+  ];
+
+  return (
+    <footer className="bg-black relative h-fit overflow-hidden">
+      <div className="max-w-7xl mx-auto p-14 z-40 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
+          {/* Brand section */}
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center">
+              <img 
+                src={LOGO_URL} 
+                alt="Everton Ferrari Logo" 
+                className="h-12 w-auto"
+              />
+            </div>
+            <p className="text-sm leading-relaxed text-gray-400">
+              Trainer em PNL e Mentor de Comportamento Humano. Devolvendo clareza e propósito através da quebra de crenças.
+            </p>
+          </div>
+
+          {/* Footer link sections */}
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="text-white text-lg font-semibold mb-6">
+                {section.title}
+              </h4>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.label} className="relative">
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-[#4169E1] transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                    {link.pulse && (
+                      <span className="absolute top-0 right-[-10px] w-2 h-2 rounded-full bg-[#4169E1] animate-pulse"></span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* Contact section */}
+          <div>
+            <h4 className="text-white text-lg font-semibold mb-6">
+              Contato
+            </h4>
+            <ul className="space-y-4">
+              {contactInfo.map((item, i) => (
+                <li key={i} className="flex items-center space-x-3">
+                  {item.icon}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="text-gray-400 hover:text-[#4169E1] transition-colors"
+                    >
+                      {item.text}
+                    </a>
+                  ) : (
+                    <span className="text-gray-400">
+                      {item.text}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <hr className="border-t border-gray-800 my-8" />
+
+        {/* Footer bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0 text-gray-400">
+          {/* Social icons */}
+          <div className="flex space-x-6">
+            {socialLinks.map(({ icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="hover:text-[#4169E1] transition-colors"
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+
+          {/* Copyright */}
+          <p className="text-center md:text-left">
+            &copy; {new Date().getFullYear()} Everton Ferrari. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+
+      {/* Text hover effect */}
+      <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36">
+        <TextHoverEffect text="EVERTON" className="z-50" />
+      </div>
+
+      <FooterBackgroundGradient />
+    </footer>
+  );
+}
+
+const NAV_LINKS = [
+  { label: "Início", href: "#" },
+  { label: "O Método", href: "#metodo" },
+  { label: "Sobre Mim", href: "#sobre" },
+  { label: "Depoimentos", href: "#depoimentos" },
+];
+
+export default function Home() {
+  return (
+    <main className="min-h-screen relative selection:bg-[#1E3A8A] selection:text-white overflow-x-hidden">
+      <GrainOverlay />
+      <Navbar
+        logoUrl={LOGO_URL}
+        logoAlt="Everton Ferrari Logo"
+        links={NAV_LINKS}
+        ctaLabel="Fale Comigo"
+        ctaHref={WHATSAPP_LINK}
+      />
+      <div className="pt-[64px]">
+      <HeroSection />
+      <PainSection />
+      <MethodSection />
+      <FilterSection />
+      <TestimonialsSection />
+      <AuthoritySection />
+      <FinalCTA />
+      </div>
+      <Footer />
+    </main>
+  );
+}
