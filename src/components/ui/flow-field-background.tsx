@@ -165,7 +165,7 @@ export default function NeuralBackground({
     };
 
     init();
-    animate();
+    requestAnimationFrame(animate);
 
     window.addEventListener("resize", handleResize);
     if (!isMobile) {

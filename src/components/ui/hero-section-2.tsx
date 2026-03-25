@@ -1,10 +1,11 @@
 import React from 'react';
 import { cn } from "@/lib/utils";
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import NeuralBackground from "@/components/ui/flow-field-background";
 
 
-interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+interface HeroSectionProps {
+  className?: string;
   logo?: {
     url: string;
     alt: string;
@@ -21,9 +22,9 @@ interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
-  ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage, ...props }, ref) => {
+  ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage }, ref) => {
 
-    const containerVariants = {
+    const containerVariants: Variants = {
       hidden: { opacity: 0 },
       visible: {
         opacity: 1,
@@ -34,14 +35,14 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       },
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
       hidden: { y: 25, opacity: 0 },
       visible: {
         y: 0,
         opacity: 1,
         transition: {
           duration: 0.8,
-          ease: [0.25, 0.46, 0.45, 0.94],
+          ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
         },
       },
     };
@@ -57,7 +58,6 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        {...props}
       >
         {/* Flow field background - covers entire hero */}
         <div className="absolute inset-0 z-0">
@@ -103,12 +103,12 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 variants={itemVariants}
               />
 
-              <motion.p
+              <motion.div
                   className="max-w-lg text-base md:text-lg text-[#0F1B3D] font-light leading-relaxed"
                   variants={itemVariants}
                 >
                 {subtitle}
-              </motion.p>
+              </motion.div>
 
               <motion.div variants={itemVariants}>
                 <a
@@ -160,7 +160,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           className="relative hidden md:block w-full min-h-[400px] md:w-1/2 md:min-h-full lg:w-2/5"
           initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
           animate={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0% 100%)' }}
-          transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           style={{ zIndex: 2 }}
         >
           <div

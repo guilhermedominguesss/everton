@@ -41,12 +41,12 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
 
     const textVariants = {
         hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] } },
     };
 
     const mockupVariants = {
         hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number], delay: 0.4 } },
     };
 
     const layoutClasses = reverseLayout
