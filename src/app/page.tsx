@@ -708,33 +708,121 @@ export function TestimonialsSection() {
 export function AuthoritySection() {
   return (
     <section id="sobre" className="px-6 py-32 bg-white overflow-hidden relative">
-      <div className="max-w-6xl mx-auto">
+
+      {/* ── Luz difusa dourada – canto superior direito ── */}
+      <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at top right, rgba(201,162,39,0.10) 0%, transparent 70%)" }} />
+
+      {/* ── Luz difusa azul profunda – canto inferior esquerdo ── */}
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at bottom left, rgba(30,58,138,0.06) 0%, transparent 70%)" }} />
+
+      {/* ── Anel dourado grande – canto superior direito ── */}
+      <svg className="absolute top-[-80px] right-[-80px] w-[380px] h-[380px] pointer-events-none opacity-25" viewBox="0 0 380 380" fill="none">
+        <circle cx="190" cy="190" r="180" stroke="#C9A227" strokeWidth="0.8" strokeDasharray="4 8" />
+        <circle cx="190" cy="190" r="155" stroke="#C9A227" strokeWidth="0.4" />
+        <circle cx="190" cy="190" r="6" fill="#C9A227" opacity="0.5" />
+      </svg>
+
+      {/* ── Anel dourado médio – canto inferior esquerdo ── */}
+      <svg className="absolute bottom-[-60px] left-[-60px] w-[260px] h-[260px] pointer-events-none opacity-20" viewBox="0 0 260 260" fill="none">
+        <circle cx="130" cy="130" r="122" stroke="#C9A227" strokeWidth="0.8" strokeDasharray="3 6" />
+        <circle cx="130" cy="130" r="100" stroke="#8B6F30" strokeWidth="0.4" />
+      </svg>
+
+      {/* ── Ornamento de linha dourada superior – centro ── */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 flex items-center gap-3 pointer-events-none opacity-30">
+        <div className="w-20 h-px" style={{ background: "linear-gradient(90deg, transparent, #C9A227)" }} />
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <circle cx="5" cy="5" r="4" stroke="#C9A227" strokeWidth="0.8" />
+          <circle cx="5" cy="5" r="1.5" fill="#C9A227" />
+        </svg>
+        <div className="w-20 h-px" style={{ background: "linear-gradient(90deg, #C9A227, transparent)" }} />
+      </div>
+
+      {/* ── Ornamento de linha dourada inferior – centro ── */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 pointer-events-none opacity-30">
+        <div className="w-20 h-px" style={{ background: "linear-gradient(90deg, transparent, #C9A227)" }} />
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="7" width="8.5" height="8.5" transform="rotate(-45 7 1)" stroke="#C9A227" strokeWidth="0.8" fill="none" />
+        </svg>
+        <div className="w-20 h-px" style={{ background: "linear-gradient(90deg, #C9A227, transparent)" }} />
+      </div>
+
+      {/* ── Pequenos círculos flutuantes decorativos ── */}
+      <svg className="absolute top-[18%] left-[8%] pointer-events-none opacity-15 hidden md:block" width="60" height="60" viewBox="0 0 60 60" fill="none">
+        <circle cx="30" cy="30" r="28" stroke="#C9A227" strokeWidth="0.6" strokeDasharray="2 5" />
+        <circle cx="30" cy="30" r="18" stroke="#C9A227" strokeWidth="0.4" />
+        <circle cx="30" cy="30" r="3" fill="#C9A227" opacity="0.6" />
+      </svg>
+      <svg className="absolute bottom-[22%] right-[6%] pointer-events-none opacity-15 hidden md:block" width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="20" stroke="#8B6F30" strokeWidth="0.6" strokeDasharray="2 4" />
+        <circle cx="22" cy="22" r="12" stroke="#8B6F30" strokeWidth="0.3" />
+      </svg>
+
+      {/* ── Linha vertical dourada lateral esquerda ── */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-2 pointer-events-none opacity-25">
+        <div className="w-px h-24" style={{ background: "linear-gradient(180deg, transparent, #C9A227)" }} />
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+          <circle cx="4" cy="4" r="3" stroke="#C9A227" strokeWidth="0.8" />
+        </svg>
+        <div className="w-px h-24" style={{ background: "linear-gradient(180deg, #C9A227, transparent)" }} />
+      </div>
+
+      {/* ── Conteúdo principal ── */}
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row gap-20 items-center">
             <div className="w-full md:w-1/2 relative">
-               <div className="aspect-[4/5] rounded-[60px] bg-neutral-900 relative overflow-hidden group border border-white/5">
-                  <img 
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c20fa042-f03a-41ff-9d4a-1212f1f96fdc/Fotos-1767707749223.png?width=8000&height=8000&resize=contain" 
+               {/* Sombra decorativa atrás da foto */}
+               <div className="absolute -inset-3 rounded-[65px] pointer-events-none"
+                 style={{ background: "radial-gradient(ellipse at center, rgba(201,162,39,0.08) 0%, transparent 70%)" }} />
+
+               <div className="aspect-[4/5] rounded-[60px] bg-neutral-900 relative overflow-hidden group border border-white/5"
+                 style={{ boxShadow: "0 8px 60px rgba(201,162,39,0.12), 0 2px 20px rgba(0,0,0,0.15)" }}>
+                  <img
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c20fa042-f03a-41ff-9d4a-1212f1f96fdc/Fotos-1767707749223.png?width=8000&height=8000&resize=contain"
                     alt="Everton Ferrari"
                     className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/40 to-transparent opacity-60" />
+                  {/* Borda dourada interna sutil */}
+                  <div className="absolute inset-0 rounded-[60px]"
+                    style={{ boxShadow: "inset 0 0 0 1px rgba(201,162,39,0.15)" }} />
                </div>
-               <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#C9A227] rounded-full flex items-center justify-center text-white p-6 text-center shadow-2xl">
+
+               <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#C9A227] rounded-full flex items-center justify-center text-white p-6 text-center shadow-2xl"
+                 style={{ boxShadow: "0 0 40px rgba(201,162,39,0.35)" }}>
                 <p className="font-serif italic text-lg">+500 horas de impacto real</p>
              </div>
           </div>
+
           <div className="w-full md:w-1/2">
-            <span className="text-[#1E3A8A] text-xs tracking-[0.2em] uppercase mb-6 block">Seu Mentor: Everton Ferrari – Trainer em PNL</span>
+            {/* Linha decorativa dourada antes do label */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-[#C9A227] opacity-60" />
+              <span className="text-[#1E3A8A] text-xs tracking-[0.2em] uppercase">Seu Mentor: Everton Ferrari – Trainer em PNL</span>
+            </div>
+
             <div className="flex flex-col items-start mb-8">
-              <GradualSpacing 
+              <GradualSpacing
                 text="Everton"
                 className="text-5xl md:text-7xl font-serif font-light text-[#111827] justify-start"
               />
-              <GradualSpacing 
+              <GradualSpacing
                 text="Ferrari"
                 className="text-5xl md:text-7xl font-serif font-light text-[#111827] justify-start"
               />
             </div>
+
+            {/* Linha separadora dourada ornamental */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, #C9A227, rgba(201,162,39,0.1))" }} />
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="6" r="5" stroke="#C9A227" strokeWidth="0.8" />
+                <circle cx="6" cy="6" r="2" fill="#C9A227" opacity="0.7" />
+              </svg>
+            </div>
+
             <p className="text-[#1E3A8A] font-serif italic text-xl mb-8">Especialista em Comportamento Humano e Quebra de Crenças.</p>
             <div className="space-y-5 text-[#6B7280] text-base md:text-lg font-sans font-light leading-relaxed mb-12">
               <p>Se você chegou até aqui, talvez esteja procurando mais do que respostas.<br />Talvez esteja procurando clareza.</p>
@@ -743,6 +831,16 @@ export function AuthoritySection() {
               <p>Ao longo de mais de 500 horas conduzindo processos de transformação humana, tenho acompanhado pessoas que já conquistaram muito por fora, mas sabem que existe algo dentro delas pedindo mais verdade, mais alinhamento e mais sentido.</p>
               <p className="text-[#0F1B3D] font-medium italic">Você não está travado. Está confortável.</p>
             </div>
+
+            {/* Linha separadora dourada antes dos stats */}
+            <div className="flex items-center gap-3 mb-8">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="6" r="5" stroke="#C9A227" strokeWidth="0.8" />
+                <circle cx="6" cy="6" r="2" fill="#C9A227" opacity="0.7" />
+              </svg>
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(201,162,39,0.6), rgba(201,162,39,0.05))" }} />
+            </div>
+
             <div className="grid grid-cols-2 gap-8">
               <div>
                 <p className="text-4xl font-serif text-[#1E3A8A] mb-1">+10 anos</p>
