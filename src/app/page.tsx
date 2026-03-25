@@ -710,9 +710,12 @@ export function AuthoritySection() {
               />
             </div>
             <p className="text-[#1E3A8A] font-serif italic text-xl mb-8">Especialista em Comportamento Humano e Quebra de Crenças.</p>
-            <div className="space-y-6 text-[#6B7280] text-lg font-sans font-light leading-relaxed mb-12">
-              <p>Especialista em PNL, Crenças e Valores, com mais de 10 anos de jornada dedicados ao deciframento do comportamento humano.</p>
-              <p>Meu método não é padronizado. Ele é um espelho. Eu conduzo você até o ponto onde as respostas que você busca finalmente podem ser ouvidas.</p>
+            <div className="space-y-5 text-[#6B7280] text-base md:text-lg font-sans font-light leading-relaxed mb-12">
+              <p>Se você chegou até aqui, talvez esteja procurando mais do que respostas.<br />Talvez esteja procurando clareza.</p>
+              <p>Eu sou Everton Ferrari, trainer em Programação Neurolinguística (PNL), especialista em crenças e valores humanos, mentor de transição de carreira e negócios e criador da técnica <strong className="text-[#0F1B3D] font-medium">Volta Pra Casa</strong>.</p>
+              <p><strong className="text-[#0F1B3D] font-medium">Meu trabalho não é motivar pessoas.</strong><br />É ajudá-las a enxergar com clareza os padrões invisíveis que influenciam suas escolhas e conduzi-las de volta ao lugar onde identidade, valores e decisões caminham na mesma direção.</p>
+              <p>Ao longo de mais de 500 horas conduzindo processos de transformação humana, tenho acompanhado pessoas que já conquistaram muito por fora, mas sabem que existe algo dentro delas pedindo mais verdade, mais alinhamento e mais sentido.</p>
+              <p className="text-[#0F1B3D] font-medium italic">Você não está travado. Está confortável.</p>
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>
@@ -948,11 +951,11 @@ export default function Home() {
       />
       <div className="pt-[64px]">
       <HeroSection />
+      <AuthoritySection />
       <PainSection />
       <MethodSection />
       <FilterSection />
       <TestimonialsSection />
-      <AuthoritySection />
       <FinalCTA />
       </div>
       <Footer />
