@@ -559,153 +559,194 @@ export function FilterSection() {
 
   return (
     <section className="px-6 py-48 relative overflow-hidden"
-      style={{ background: "linear-gradient(145deg, #EEF2FF 0%, #F7F9FC 35%, #F0F4FF 70%, #E8EEFF 100%)" }}>
+      style={{ background: "linear-gradient(150deg, #FAFBFF 0%, #F7F9FC 40%, #F5F7FF 75%, #F2F5FF 100%)" }}>
 
-      {/* SVG grain texture — spiritual depth */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.032 }}>
-        <filter id="filter-grain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch"/>
+      {/* SVG grain texture — espiritual e acolhedor */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.030 }}>
+        <filter id="filter-grain-f">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch"/>
           <feColorMatrix type="saturate" values="0"/>
         </filter>
-        <rect width="100%" height="100%" filter="url(#filter-grain)"/>
+        <rect width="100%" height="100%" filter="url(#filter-grain-f)"/>
       </svg>
 
-      {/* Indigo light orb — top-left */}
+      {/* Luz dourada suave — topo direito */}
       <div className="absolute pointer-events-none"
-        style={{ top: "-8%", left: "-6%", width: "55%", height: "55%",
-          background: "radial-gradient(ellipse at 30% 30%, rgba(99,102,241,0.13) 0%, rgba(139,92,246,0.07) 40%, transparent 70%)",
-          filter: "blur(60px)" }} />
+        style={{ top: "-10%", right: "-8%", width: "52%", height: "52%",
+          background: "radial-gradient(ellipse at 70% 25%, rgba(201,168,76,0.14) 0%, rgba(139,111,48,0.07) 45%, transparent 70%)",
+          filter: "blur(65px)" }} />
 
-      {/* Blue-teal light — center-right */}
+      {/* Luz azul suave — centro esquerdo */}
       <div className="absolute pointer-events-none"
-        style={{ top: "20%", right: "-5%", width: "45%", height: "50%",
-          background: "radial-gradient(ellipse at 70% 40%, rgba(56,189,248,0.10) 0%, rgba(59,130,246,0.06) 45%, transparent 70%)",
+        style={{ top: "25%", left: "-5%", width: "45%", height: "50%",
+          background: "radial-gradient(ellipse at 25% 50%, rgba(147,197,253,0.12) 0%, rgba(191,219,254,0.06) 50%, transparent 72%)",
           filter: "blur(70px)" }} />
 
-      {/* Warm amber glow — bottom-right */}
+      {/* Suavidade âmbar — rodapé esquerdo */}
       <div className="absolute pointer-events-none"
-        style={{ bottom: "0%", right: "10%", width: "40%", height: "40%",
-          background: "radial-gradient(ellipse at 60% 80%, rgba(139,111,48,0.08) 0%, transparent 65%)",
+        style={{ bottom: "0%", left: "5%", width: "42%", height: "38%",
+          background: "radial-gradient(ellipse at 30% 80%, rgba(139,111,48,0.07) 0%, transparent 65%)",
           filter: "blur(55px)" }} />
 
-      {/* Shadow depth — bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: "linear-gradient(0deg, rgba(99,102,241,0.06) 0%, transparent 100%)" }} />
+      {/* Véu de luz suave — topo */}
+      <div className="absolute top-0 left-0 right-0 h-28 pointer-events-none"
+        style={{ background: "linear-gradient(180deg, rgba(201,168,76,0.05) 0%, transparent 100%)" }} />
 
-      {/* ── VESICA PISCIS — top-right ─────────────────────────────── */}
+      {/* ── HALO DE LUZ — topo direito ────────────────────────────── */}
+      {/* 24 raios irradiando de um centro, como luz divina / esperança */}
       <svg className="absolute pointer-events-none"
-        style={{ top: "-60px", right: "-60px", width: "420px", height: "420px", opacity: 0.38 }}
-        viewBox="0 0 420 420" fill="none">
+        style={{ top: "-90px", right: "-90px", width: "440px", height: "440px", opacity: 0.42 }}
+        viewBox="0 0 440 440" fill="none">
         <defs>
-          <linearGradient id="vp-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8B6F30" stopOpacity="0.9"/>
-            <stop offset="100%" stopColor="#C9A84C" stopOpacity="0.3"/>
+          <linearGradient id="ray-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#C9A84C" stopOpacity="0.9"/>
+            <stop offset="100%" stopColor="#8B6F30" stopOpacity="0.2"/>
           </linearGradient>
+          <radialGradient id="halo-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#C9A84C" stopOpacity="0.35"/>
+            <stop offset="60%" stopColor="#C9A84C" stopOpacity="0.08"/>
+            <stop offset="100%" stopColor="#C9A84C" stopOpacity="0"/>
+          </radialGradient>
         </defs>
-        {/* Left circle of vesica */}
-        <circle cx="185" cy="210" r="110" stroke="url(#vp-gold)" strokeWidth="0.8"/>
-        {/* Right circle of vesica */}
-        <circle cx="235" cy="210" r="110" stroke="url(#vp-gold)" strokeWidth="0.8"/>
-        {/* Outer containing circle */}
-        <circle cx="210" cy="210" r="148" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.45"/>
-        {/* Inner small circle at center */}
-        <circle cx="210" cy="210" r="55" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.5"/>
-        {/* Vesica lens vertical axis */}
-        <line x1="210" y1="62" x2="210" y2="358" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.30"/>
-        {/* Horizontal axis */}
-        <line x1="62" y1="210" x2="358" y2="210" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.30"/>
-        {/* Triangle inscribed in vesica */}
-        <polygon points="210,100 318,265 102,265" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.28" fill="none"/>
-        {/* Tiny center point */}
-        <circle cx="210" cy="210" r="3" fill="#8B6F30" fillOpacity="0.5"/>
-        {/* 12 radial ticks on outer ring */}
-        {Array.from({length: 12}, (_, i) => {
-          const angle = (i * 30 - 90) * Math.PI / 180;
-          const r1 = 148, r2 = 156;
+        {/* Glow suave no centro */}
+        <circle cx="220" cy="220" r="200" fill="url(#halo-glow)"/>
+        {/* 24 raios de luz */}
+        {Array.from({length: 24}, (_, i) => {
+          const angle = (i * 15) * Math.PI / 180;
+          const inner = i % 3 === 0 ? 55 : i % 3 === 1 ? 62 : 58;
+          const outer = i % 3 === 0 ? 185 : i % 3 === 1 ? 155 : 168;
           return <line key={i}
-            x1={210 + r1 * Math.cos(angle)} y1={210 + r1 * Math.sin(angle)}
-            x2={210 + r2 * Math.cos(angle)} y2={210 + r2 * Math.sin(angle)}
-            stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.55"/>;
+            x1={220 + inner * Math.cos(angle)} y1={220 + inner * Math.sin(angle)}
+            x2={220 + outer * Math.cos(angle)} y2={220 + outer * Math.sin(angle)}
+            stroke="url(#ray-gold)"
+            strokeWidth={i % 3 === 0 ? "0.9" : "0.5"}
+            strokeOpacity={i % 3 === 0 ? "0.70" : "0.40"}/>;
         })}
+        {/* Círculo interno suave ao redor do centro */}
+        <circle cx="220" cy="220" r="52" stroke="#C9A84C" strokeWidth="0.8" strokeOpacity="0.55"/>
+        <circle cx="220" cy="220" r="38" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.40"/>
+        {/* Ponto de luz central */}
+        <circle cx="220" cy="220" r="5" fill="#C9A84C" fillOpacity="0.55"/>
+        <circle cx="220" cy="220" r="2.5" fill="#8B6F30" fillOpacity="0.70"/>
+        {/* Arco externo tracejado — coroa de luz */}
+        <circle cx="220" cy="220" r="195" stroke="#C9A84C" strokeWidth="0.6" strokeOpacity="0.28"
+          strokeDasharray="4 8"/>
       </svg>
 
-      {/* ── COSMIC ORBITS — bottom-left ───────────────────────────── */}
+      {/* ── ROSETA FLORAL — canto inferior esquerdo ──────────────── */}
+      {/* 8 pétalas simétricas — símbolo de florescimento, renovação */}
       <svg className="absolute pointer-events-none"
-        style={{ bottom: "-80px", left: "-80px", width: "480px", height: "480px", opacity: 0.34 }}
-        viewBox="0 0 480 480" fill="none">
+        style={{ bottom: "-70px", left: "-70px", width: "400px", height: "400px", opacity: 0.40 }}
+        viewBox="0 0 400 400" fill="none">
         <defs>
-          <linearGradient id="orbit-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#6366F1" stopOpacity="0.8"/>
-            <stop offset="100%" stopColor="#8B6F30" stopOpacity="0.3"/>
+          <linearGradient id="petal-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#8B6F30" stopOpacity="0.85"/>
+            <stop offset="100%" stopColor="#C9A84C" stopOpacity="0.25"/>
           </linearGradient>
         </defs>
-        {/* Tilted orbit ellipses — three at different rotations */}
-        <ellipse cx="240" cy="240" rx="180" ry="80" stroke="url(#orbit-blue)" strokeWidth="0.7"
-          transform="rotate(-30 240 240)"/>
-        <ellipse cx="240" cy="240" rx="180" ry="80" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.45"
-          transform="rotate(30 240 240)"/>
-        <ellipse cx="240" cy="240" rx="180" ry="80" stroke="#6366F1" strokeWidth="0.5" strokeOpacity="0.30"
-          transform="rotate(90 240 240)"/>
-        {/* Center circle */}
-        <circle cx="240" cy="240" r="28" stroke="#8B6F30" strokeWidth="0.8" strokeOpacity="0.55"/>
-        <circle cx="240" cy="240" r="10" stroke="#6366F1" strokeWidth="0.6" strokeOpacity="0.50"/>
-        <circle cx="240" cy="240" r="3" fill="#8B6F30" fillOpacity="0.6"/>
-        {/* Outer boundary ring */}
-        <circle cx="240" cy="240" r="190" stroke="#6366F1" strokeWidth="0.5" strokeOpacity="0.22"/>
-        {/* 8 cardinal ticks */}
+        {/* 8 pétalas elípticas giradas */}
+        {Array.from({length: 8}, (_, i) => (
+          <ellipse key={i} cx="200" cy="200" rx="22" ry="82"
+            stroke="url(#petal-gold)" strokeWidth="0.85" fill="none"
+            transform={`rotate(${i * 22.5} 200 200)`}/>
+        ))}
+        {/* 8 pétalas internas menores */}
+        {Array.from({length: 8}, (_, i) => (
+          <ellipse key={i} cx="200" cy="200" rx="14" ry="50"
+            stroke="#8B6F30" strokeWidth="0.6" fill="none" strokeOpacity="0.50"
+            transform={`rotate(${i * 22.5 + 11.25} 200 200)`}/>
+        ))}
+        {/* Anel externo */}
+        <circle cx="200" cy="200" r="135" stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.38"/>
+        {/* Anel interno */}
+        <circle cx="200" cy="200" r="88" stroke="#C9A84C" strokeWidth="0.7" strokeOpacity="0.45"/>
+        {/* Centro */}
+        <circle cx="200" cy="200" r="22" stroke="#8B6F30" strokeWidth="0.8" strokeOpacity="0.55"/>
+        <circle cx="200" cy="200" r="10" stroke="#C9A84C" strokeWidth="0.7" strokeOpacity="0.60"/>
+        <circle cx="200" cy="200" r="4"  fill="#8B6F30" fillOpacity="0.60"/>
+        {/* Marcações nos 8 pontos do anel externo */}
         {Array.from({length: 8}, (_, i) => {
           const angle = (i * 45 - 90) * Math.PI / 180;
           return <line key={i}
-            x1={240 + 190 * Math.cos(angle)} y1={240 + 190 * Math.sin(angle)}
-            x2={240 + 200 * Math.cos(angle)} y2={240 + 200 * Math.sin(angle)}
-            stroke="#6366F1" strokeWidth="0.8" strokeOpacity="0.45"/>;
+            x1={200 + 132 * Math.cos(angle)} y1={200 + 132 * Math.sin(angle)}
+            x2={200 + 142 * Math.cos(angle)} y2={200 + 142 * Math.sin(angle)}
+            stroke="#8B6F30" strokeWidth="0.9" strokeOpacity="0.60"/>;
         })}
       </svg>
 
-      {/* ── SMALL SPIRAL CIRCLES — mid-left ──────────────────────── */}
+      {/* ── ESTRELA DE 8 PONTAS — lateral esquerda ───────────────── */}
+      {/* Símbolo de orientação, guia, esperança — usado em igrejas e arte espiritual */}
       <svg className="absolute pointer-events-none hidden lg:block"
-        style={{ top: "38%", left: "2%", width: "120px", height: "120px", opacity: 0.33 }}
-        viewBox="0 0 120 120" fill="none">
-        <circle cx="60" cy="60" r="55" stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.6"/>
-        <circle cx="60" cy="60" r="42" stroke="#6366F1" strokeWidth="0.6" strokeOpacity="0.5"/>
-        <circle cx="60" cy="60" r="28" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.5"/>
-        <circle cx="60" cy="60" r="14" stroke="#6366F1" strokeWidth="0.6" strokeOpacity="0.55"/>
-        <circle cx="60" cy="60" r="4"  fill="#8B6F30" fillOpacity="0.55"/>
-        {/* Cross */}
-        <line x1="60" y1="5"  x2="60" y2="115" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.35"/>
-        <line x1="5"  y1="60" x2="115" y2="60" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.35"/>
+        style={{ top: "40%", left: "1.5%", width: "110px", height: "110px", opacity: 0.38 }}
+        viewBox="0 0 110 110" fill="none">
+        {/* 8-pointed star */}
+        {Array.from({length: 8}, (_, i) => {
+          const outerA = ((i * 45) - 90) * Math.PI / 180;
+          const innerA = ((i * 45 + 22.5) - 90) * Math.PI / 180;
+          const nextOuterA = (((i+1) * 45) - 90) * Math.PI / 180;
+          const oR = 46, iR = 22;
+          return <polygon key={i}
+            points={`${55 + oR*Math.cos(outerA)},${55 + oR*Math.sin(outerA)} ${55 + iR*Math.cos(innerA)},${55 + iR*Math.sin(innerA)} ${55 + oR*Math.cos(nextOuterA)},${55 + oR*Math.sin(nextOuterA)}`}
+            stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.65" fill="none"/>;
+        })}
+        <circle cx="55" cy="55" r="46" stroke="#8B6F30" strokeWidth="0.6" strokeOpacity="0.35"/>
+        <circle cx="55" cy="55" r="20" stroke="#C9A84C" strokeWidth="0.6" strokeOpacity="0.50"/>
+        <circle cx="55" cy="55" r="5"  fill="#8B6F30" fillOpacity="0.50"/>
       </svg>
 
-      {/* ── SMALL VESICA — mid-right ──────────────────────────────── */}
+      {/* ── ESTRELA PEQUENA — lateral direita ─────────────────────── */}
       <svg className="absolute pointer-events-none hidden xl:block"
-        style={{ top: "55%", right: "3%", width: "100px", height: "100px", opacity: 0.28 }}
-        viewBox="0 0 100 100" fill="none">
-        <circle cx="42" cy="50" r="32" stroke="#8B6F30" strokeWidth="0.8" strokeOpacity="0.7"/>
-        <circle cx="58" cy="50" r="32" stroke="#6366F1" strokeWidth="0.8" strokeOpacity="0.6"/>
-        <circle cx="50" cy="50" r="46" stroke="#8B6F30" strokeWidth="0.5" strokeOpacity="0.35"/>
-        <circle cx="50" cy="50" r="3"  fill="#6366F1" fillOpacity="0.6"/>
+        style={{ top: "58%", right: "2.5%", width: "80px", height: "80px", opacity: 0.32 }}
+        viewBox="0 0 80 80" fill="none">
+        {Array.from({length: 8}, (_, i) => {
+          const outerA = ((i * 45) - 90) * Math.PI / 180;
+          const innerA = ((i * 45 + 22.5) - 90) * Math.PI / 180;
+          const nextOuterA = (((i+1) * 45) - 90) * Math.PI / 180;
+          const oR = 32, iR = 15;
+          return <polygon key={i}
+            points={`${40 + oR*Math.cos(outerA)},${40 + oR*Math.sin(outerA)} ${40 + iR*Math.cos(innerA)},${40 + iR*Math.sin(innerA)} ${40 + oR*Math.cos(nextOuterA)},${40 + oR*Math.sin(nextOuterA)}`}
+            stroke="#C9A84C" strokeWidth="0.7" strokeOpacity="0.60" fill="none"/>;
+        })}
+        <circle cx="40" cy="40" r="32" stroke="#C9A84C" strokeWidth="0.5" strokeOpacity="0.30"/>
+        <circle cx="40" cy="40" r="4"  fill="#C9A84C" fillOpacity="0.45"/>
       </svg>
 
-      {/* ── TOP ORNAMENTAL LINE ───────────────────────────────────── */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-3" style={{ opacity: 0.48 }}>
-        <div style={{ width: "120px", height: "1px", background: "linear-gradient(90deg, transparent, #8B6F30 60%, rgba(139,111,48,0.3))" }}/>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <circle cx="7" cy="7" r="5" stroke="#8B6F30" strokeWidth="0.8"/>
-          <circle cx="7" cy="7" r="2" stroke="#6366F1" strokeWidth="0.7"/>
-          <circle cx="7" cy="7" r="1" fill="#8B6F30"/>
+      {/* ── LINHA ORNAMENTAL SUPERIOR — mais evidência ────────────── */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-4" style={{ opacity: 0.68 }}>
+        <div style={{ width: "160px", height: "1.5px", background: "linear-gradient(90deg, transparent 0%, #8B6F30 50%, #C9A84C 100%)" }}/>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          {/* Ornamento central: 4 pontas + círculo */}
+          <circle cx="11" cy="11" r="8" stroke="#8B6F30" strokeWidth="1"/>
+          <circle cx="11" cy="11" r="3.5" stroke="#C9A84C" strokeWidth="0.8"/>
+          <line x1="11" y1="1" x2="11" y2="21" stroke="#8B6F30" strokeWidth="0.8" strokeOpacity="0.55"/>
+          <line x1="1"  y1="11" x2="21" y2="11" stroke="#8B6F30" strokeWidth="0.8" strokeOpacity="0.55"/>
+          <circle cx="11" cy="11" r="1.5" fill="#8B6F30"/>
         </svg>
-        <div style={{ width: "120px", height: "1px", background: "linear-gradient(90deg, rgba(139,111,48,0.3), #8B6F30 40%, transparent)" }}/>
+        <div style={{ width: "160px", height: "1.5px", background: "linear-gradient(90deg, #C9A84C 0%, #8B6F30 50%, transparent 100%)" }}/>
       </div>
 
-      {/* ── BOTTOM ORNAMENTAL LINE ────────────────────────────────── */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-3" style={{ opacity: 0.42 }}>
-        <div style={{ width: "80px", height: "1px", background: "linear-gradient(90deg, transparent, #6366F1 60%, rgba(99,102,241,0.3))" }}/>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <circle cx="6" cy="6" r="5" stroke="#6366F1" strokeWidth="0.8"/>
-          <circle cx="6" cy="6" r="2" stroke="#8B6F30" strokeWidth="0.7"/>
-          <circle cx="6" cy="6" r="1" fill="#6366F1"/>
+      {/* ── LINHA ORNAMENTAL INFERIOR — mais evidência ────────────── */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-4" style={{ opacity: 0.60 }}>
+        <div style={{ width: "130px", height: "1.5px", background: "linear-gradient(90deg, transparent 0%, #8B6F30 50%, #C9A84C 100%)" }}/>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="7" stroke="#8B6F30" strokeWidth="0.9"/>
+          <circle cx="9" cy="9" r="3" stroke="#C9A84C" strokeWidth="0.8"/>
+          {/* 4 pequenas pontas */}
+          <line x1="9" y1="0" x2="9" y2="18" stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.50"/>
+          <line x1="0" y1="9" x2="18" y2="9" stroke="#8B6F30" strokeWidth="0.7" strokeOpacity="0.50"/>
+          <circle cx="9" cy="9" r="1.5" fill="#C9A84C"/>
         </svg>
-        <div style={{ width: "80px", height: "1px", background: "linear-gradient(90deg, rgba(99,102,241,0.3), #6366F1 40%, transparent)" }}/>
+        <div style={{ width: "130px", height: "1.5px", background: "linear-gradient(90deg, #C9A84C 0%, #8B6F30 50%, transparent 100%)" }}/>
+      </div>
+
+      {/* ── LINHA VERTICAL ESQUERDA — sutil ───────────────────────── */}
+      <div className="absolute left-8 top-1/2 -translate-y-1/2 pointer-events-none hidden xl:flex flex-col items-center gap-3" style={{ opacity: 0.45 }}>
+        <div style={{ width: "1.5px", height: "80px", background: "linear-gradient(180deg, transparent, #8B6F30 60%, rgba(139,111,48,0.3))" }}/>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <circle cx="5" cy="5" r="3.5" stroke="#8B6F30" strokeWidth="0.8"/>
+          <circle cx="5" cy="5" r="1.5" fill="#8B6F30"/>
+        </svg>
+        <div style={{ width: "1.5px", height: "80px", background: "linear-gradient(180deg, rgba(139,111,48,0.3), #8B6F30 40%, transparent)" }}/>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
