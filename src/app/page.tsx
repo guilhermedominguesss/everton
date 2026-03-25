@@ -622,12 +622,20 @@ export function FilterSection() {
           </div>
         </div>
 
-        <div className="mt-20 flex justify-center">
+        <div className="mt-20 flex flex-col items-center gap-8">
+          <div className="text-center space-y-1">
+            <p className="text-[#6B7280] text-base md:text-lg font-sans font-light italic">
+              Algumas pessoas passam a vida reagindo ao que acontece.
+            </p>
+            <p className="text-[#0F1B3D] text-base md:text-lg font-sans font-medium">
+              Outras decidem assumir o comando.
+            </p>
+          </div>
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full flex justify-center">
-            <ParticleButton 
+            <ParticleButton
               className="bg-[#4169E1] hover:bg-[#3158c9] text-white px-10 py-6 text-lg md:px-12 md:py-8 md:text-xl rounded-full shadow-lg shadow-blue-500/20 w-full md:w-auto"
             >
-              Eu escolho a profundidade
+              Quero assumir o comando da minha vida
             </ParticleButton>
           </a>
         </div>
