@@ -566,12 +566,30 @@ export function FilterSection() {
           <h2 className="text-4xl md:text-6xl font-serif font-black text-[#0F1B3D] mb-4 leading-tight tracking-tighter">
             Este é um convite para poucos.
           </h2>
-          <p className="italic font-light text-2xl md:text-4xl text-[#0F1B3D] mb-8">
-            Apenas para quem busca profundidade e autoconhecimento.
+          <p className="italic font-light text-2xl md:text-3xl text-[#0F1B3D] mb-10">
+            Esta mentoria não é para todos.<br />
+            Mas pode ser exatamente para você.
           </p>
-          <p className="text-[#6B7280] text-lg font-sans font-light leading-relaxed">
-            Não busco volume, busco profundidade. Minhas sessões são destinadas a quem está genuinamente pronto para encarar a própria verdade e assumir o comando.
-          </p>
+
+          <div className="space-y-5 text-[#6B7280] text-base md:text-lg font-sans font-light leading-relaxed text-left max-w-2xl mx-auto">
+            <p>A Mentoria é para pessoas que chegaram a um momento de transição na vida. Pessoas que já construíram muito, mas que começaram a perceber que algo dentro delas está pedindo uma nova direção.</p>
+
+            <p>Quer faturar mais, estruturar o seu negócio, sua carreira...</p>
+
+            <div className="space-y-1 pl-4 border-l-2 border-[#8B6F30]/40">
+              <p>Talvez você esteja repensando sua carreira.</p>
+              <p>Talvez tenha passado por uma ruptura inesperada.</p>
+              <p>Ou talvez apenas tenha percebido que a vida que construiu já não representa mais quem você realmente é.</p>
+            </div>
+
+            <p>No fundo, existe uma pergunta que não sai da sua mente:</p>
+            <p className="text-[#0F1B3D] font-serif text-xl md:text-2xl font-medium italic text-center py-2">"Como eu faço?"</p>
+
+            <p><strong className="text-[#0F1B3D] font-medium">Essa mentoria é para quem quer mudar de verdade.</strong> Para quem deseja recuperar clareza, reorganizar decisões importantes e voltar a conduzir a própria vida com consciência.</p>
+
+            <p className="text-[#0F1B3D]/70">Essa mentoria não é para quem busca atalhos ou respostas superficiais.<br />
+            <strong className="text-[#0F1B3D] font-medium">É para quem sente que chegou a hora de assumir a liderança da própria história.</strong></p>
+          </div>
         </div>
         <div className="grid lg:grid-cols-2 gap-24 lg:gap-32 items-center">
           <div className="relative pb-20 flex justify-center">
